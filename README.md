@@ -4,13 +4,28 @@ Sample of RHSSO DOMAIN on Ubuntu Server
 
 ### Download the RHSSO
 ```console
-  wget ....
+  https://access.redhat.com/jbossnetwork/restricted/listSoftware.html?downloadType=distributions&product=core.service.rhsso
 ```
 
-### Install Postgresql
+### Install Postgresql on Ubuntu
 ```console
+sudo apt install postgresql postgresql-contrib
+sudo -i -u postgres
 
+psql
 ```
+
+### Create User on Postgresql
+```console
+sudo -u postgres createuser --interactive
+```
+
+### Create the keycloak database
+```console
+sudo -u <created_user> createdb keycloak
+```
+
+
 
 ### Package de JDBC Driver
 https://access.redhat.com/documentation/en-us/red_hat_single_sign-on/7.5/html/server_installation_and_configuration_guide/database-1
