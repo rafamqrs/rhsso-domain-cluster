@@ -43,13 +43,16 @@ Or using the interface
 ```console
   ./server-one/bin/domain.sh --host-config=host-slave.xml -b 0.0.0.0 -bmanagement 0.0.0.0
 ```
-### Disable HTTPS(I'm using the AWS EC2 and I haven't setup the certificate).
+### Disable HTTPS(I'm using the AWS EC2 and I haven't setup the certificate). using kcadm
 ```console
 $ ./kcadm.sh config credentials --server http://localhost:8080/auth --realm master --user admin
 -- Apply sslRequired to none
 $ ./kcadm.sh update realms/master -s sslRequired=NONE
 ```
-
+### Disable HTTPS updating the REALM table
+```console
+update REALM set ssl_required = 'NONE' where id = 'master';
+```
 
 
 
